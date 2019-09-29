@@ -1,16 +1,12 @@
-"""
-Selenium test written in Python
-"""
-
 import unittest
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 
 class TestTemplate(unittest.TestCase):
-    """Include test cases on a given url"""
+    #Include test cases on a given url
 
     def setUp(self):
-        """Start web driver"""
+        #Start web driver
         chrome_options = webdriver.ChromeOptions()
         chrome_options.add_argument('--no-sandbox')
         chrome_options.add_argument('--headless')
@@ -19,11 +15,11 @@ class TestTemplate(unittest.TestCase):
         self.driver.implicitly_wait(10)
 
     def tearDown(self):
-        """Stop web driver"""
+        #Stop web driver
         self.driver.quit()
 
     def test_case_1(self):
-        """Find and click top-right button"""
+        #Find and click top-right button
         try:
             self.driver.get('https://www.utest.com/')
             el = self.driver.find_element_by_class_name('btn-header')
@@ -32,7 +28,7 @@ class TestTemplate(unittest.TestCase):
             self.fail(ex.msg)
 
     def test_case_2(self):
-        """Find and click Learn more button"""
+        #Find and click Learn more button
         try:
             self.driver.get('https://www.utest.com/')
             el = self.driver.find_element_by_xpath(".//*[@id='tag-line-wrap']/span/a")
